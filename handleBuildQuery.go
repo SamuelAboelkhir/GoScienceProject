@@ -1,14 +1,11 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-)
+import "fmt"
 
-func buildQuery(query *queryConstructor, scanner *bufio.Scanner, step string) {
+func buildQuery(cfg *config, query *queryConstructor, step string) {
 	fmt.Printf("Please provide a %s", step)
-	scanner.Scan()
-	param := scanner.Text()
+	cfg.scanner.Scan()
+	param := cfg.scanner.Text()
 	switch step {
 	case "domain: ":
 		query.input.domain = param

@@ -1,9 +1,14 @@
 package main
 
-import "github.com/SamuelAboelkhir/GoScienceProject/internal/client"
+import (
+	"bufio"
+
+	"github.com/SamuelAboelkhir/GoScienceProject/internal/pubchemclient"
+)
 
 type config struct {
-	apiClient client.Client
+	apiClient pubchemclient.PubChemClient
+	scanner   *bufio.Scanner
 }
 
 type queryConstructor struct {
@@ -16,4 +21,8 @@ type queryConstructor struct {
 	operation *string
 	// NOTE: JSONP can be a callback. Needs investigation
 	output string
+}
+
+type Commands struct {
+	registeredCommands map[string]func(*config, ...string) error
 }

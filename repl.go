@@ -1,44 +1,23 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"log"
-	"os"
-	"strings"
-)
+import "fmt"
 
-func repl(c *config) {
-	scanner := bufio.NewScanner(os.Stdin)
-	steps := []string{"domain: ", "namespace: ", "identifier: ", "operation (optional): ", "output format: "}
-
+func repl(cfg *config, com *Commands) {
 	for {
 		fmt.Print("PubChem > ")
-		// scanner.Scan()
-		// params := cleanInput(scanner.Text())
-		// if len(params) == 0 {
-		// 	continue
-		// }
+		cfg.scanner.Scan()
 
-		query := queryConstructor{}
-		for _, step := range steps {
-			buildQuery(&query, scanner, step)
-			fmt.Println(query)
+		input := cleanInput(cfg.scanner.Text())
+		if len(input) <= 0 {
+			fmt.Println("Please provide a command name, or use 'help' for a list of available commands")
+			continue
 		}
-		elements, err := c.apiClient.API(query.input.domain, query.input.namespace, query.input.identifiers, query.output)
-		fmt.Println(elements)
+		commandName := input[0]
+		args := input[1:]
+		err := com.run(cfg, commandName, args...)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
+			continue
 		}
-		for _, element := range elements.PCSubstances {
-			fmt.Println(element.Synonyms)
-		}
-
 	}
-}
-
-func cleanInput(text string) []string {
-	output := strings.ToLower(text)
-	words := strings.Fields(output)
-	return words
 }
