@@ -6,6 +6,18 @@ import (
 	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
 )
 
+type QueryConstructor struct {
+	input struct {
+		domain string
+		// TODO: Expand with <structure search>
+		namespace   string
+		identifiers string
+	}
+	operation *string
+	// NOTE: JSONP can be a callback. Needs investigation
+	output string
+}
+
 type QueryBuilder struct{}
 
 func (q *QueryBuilder) Execute(cfg *config.Config, args ...string) error {
