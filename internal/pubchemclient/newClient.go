@@ -8,8 +8,8 @@ import (
 	"github.com/SamuelAboelkhir/GoScienceProject/internal/cache"
 )
 
-func NewClient(timeout, cacheTimeout time.Duration) PubChemClient {
-	return PubChemClient{
+func NewClient(timeout, cacheTimeout time.Duration) *PubChemClient {
+	return &PubChemClient{
 		cache: cache.NewCache(cacheTimeout),
 		httpClient: http.Client{
 			Timeout: timeout,

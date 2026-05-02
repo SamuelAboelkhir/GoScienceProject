@@ -5,20 +5,30 @@ import (
 	"os"
 	"time"
 
+	"github.com/SamuelAboelkhir/GoScienceProject/internal/commands"
+	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
 	"github.com/SamuelAboelkhir/GoScienceProject/internal/pubchemclient"
 )
 
 func main() {
 	newClient := pubchemclient.NewClient(5*time.Second, 5*time.Minute)
 	newScanner := bufio.NewScanner(os.Stdin)
-	cfg := config{
-		apiClient: newClient,
-		scanner:   newScanner,
+
+	c := commands.Commands{
+		RegisteredCommands: make(map[string]commands.Command),
 	}
 
-	c := Commands{make(map[string]func(*config, ...string) error)}
+	builder := commands.QueryBuilder{}
+	help := commands.Help{
+		Commands: &c,
+	}
+	c.Register(builder.Name(), builder)
+	c.Register(help.Name(), help)
 
-	c.register("buildQuery", queryCommandHandler)
+	cfg := config.Config{
+		APIClient: newClient,
+		Scanner:   newScanner,
+	}
 
 	repl(&cfg, &c)
 }

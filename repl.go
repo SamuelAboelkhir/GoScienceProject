@@ -1,20 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-func repl(cfg *config, com *Commands) {
+	"github.com/SamuelAboelkhir/GoScienceProject/internal/commands"
+	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
+	"github.com/SamuelAboelkhir/GoScienceProject/internal/utils"
+)
+
+func repl(cfg *config.Config, cmd *commands.Commands) {
 	for {
 		fmt.Print("PubChem > ")
-		cfg.scanner.Scan()
+		cfg.Scanner.Scan()
 
-		input := cleanInput(cfg.scanner.Text())
+		input := utils.CleanInput(cfg.Scanner.Text())
 		if len(input) <= 0 {
 			fmt.Println("Please provide a command name, or use 'help' for a list of available commands")
 			continue
 		}
 		commandName := input[0]
 		args := input[1:]
-		err := com.run(cfg, commandName, args...)
+		err := cmd.Run(cfg, commandName, args...)
 		if err != nil {
 			fmt.Println(err)
 			continue
