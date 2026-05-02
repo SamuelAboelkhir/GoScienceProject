@@ -22,8 +22,8 @@ func main() {
 	help := commands.Help{
 		Commands: &c,
 	}
-	c.Register(builder.Name(), builder)
-	c.Register(help.Name(), help)
+	c.Register(builder.Name(), &builder)
+	c.Register(help.Name(), &help)
 
 	cfg := config.Config{
 		APIClient: newClient,

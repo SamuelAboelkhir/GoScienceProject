@@ -10,7 +10,7 @@ type Help struct {
 	Commands *Commands
 }
 
-func (h Help) Execute(cfg *config.Config, args ...string) error {
+func (h *Help) Execute(cfg *config.Config, args ...string) error {
 	fmt.Println("Welcome to the GoScienceProject CLI!")
 	fmt.Println("Available Commands:")
 	fmt.Println("-------------------")
@@ -20,10 +20,10 @@ func (h Help) Execute(cfg *config.Config, args ...string) error {
 	return nil
 }
 
-func (h Help) Name() string {
+func (h *Help) Name() string {
 	return "help"
 }
 
-func (h Help) Help() string {
+func (h *Help) Help() string {
 	return "Prints this help menu"
 }

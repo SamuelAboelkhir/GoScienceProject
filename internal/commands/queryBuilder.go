@@ -8,7 +8,7 @@ import (
 
 type QueryBuilder struct{}
 
-func (q QueryBuilder) Execute(cfg *config.Config, args ...string) error {
+func (q *QueryBuilder) Execute(cfg *config.Config, args ...string) error {
 	err := queryCommandHandler(cfg, args...)
 	if err != nil {
 		return err
@@ -16,17 +16,15 @@ func (q QueryBuilder) Execute(cfg *config.Config, args ...string) error {
 	return nil
 }
 
-func (q QueryBuilder) Name() string {
+func (q *QueryBuilder) Name() string {
 	return "buildQuery"
 }
 
-func (q QueryBuilder) Help() string {
+func (q *QueryBuilder) Help() string {
 	return "Takes a domain, namespace, identifier, an optional operation, and an output type, and queries the PubChem API for a matching chemical substance or compound"
 }
 
 func queryCommandHandler(cfg *config.Config, args ...string) error {
-	fmt.Println("arrived at builder")
-	fmt.Println(args)
 	steps := []string{"domain: ", "namespace: ", "identifier: ", "operation (optional): ", "output format: "}
 	query := QueryConstructor{}
 	for _, step := range steps {
