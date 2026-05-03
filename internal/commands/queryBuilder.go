@@ -45,7 +45,6 @@ func queryCommandHandler(cfg *config.Config, args ...string) error {
 	}
 
 	elements, err := cfg.APIClient.GetCompounds(query.input.domain, query.input.namespace, query.input.identifiers, query.output)
-	// fmt.Println(elements)
 	if err != nil {
 		return err
 	}
