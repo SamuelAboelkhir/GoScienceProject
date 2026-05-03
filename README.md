@@ -50,3 +50,6 @@ nickname       Reassured Reassurer
 - A dockerized R server in a small private network with the main Go system for that handles data analytics
 - Various scientific tools
 - A clients interface that allows for extending the app with clients for connecting with different data sources
+- A generic query builder, and dedicated query builders for very specific data sources (like PubChem)
+- Proper database connection handling (retry logic, disconnection logic)
+- Request rate limiting, as to not accidentally crash any API
