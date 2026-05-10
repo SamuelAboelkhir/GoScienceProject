@@ -1,4 +1,6 @@
-# The unnamed science project
+# CompGoR
+- The name "CompGoR" comes from the fact that this is going to be a `[comp]rehensive scientific toolkit` built with Go and R (so far)
+	- Namig is not my strong suit. The name is subject to change
 ## The dream
 - This project is going to be a reflection of my education, of everything I know
 - It will combine
