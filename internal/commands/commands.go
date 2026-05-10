@@ -4,7 +4,7 @@ package commands
 import (
 	"errors"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
+	"github.com/SamuelAboelkhir/CompGoR/internal/config"
 )
 
 type Command interface {

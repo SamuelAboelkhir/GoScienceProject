@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
+	"github.com/SamuelAboelkhir/CompGoR/internal/config"
 )
 
 type Help struct {
@@ -11,7 +11,7 @@ type Help struct {
 }
 
 func (h *Help) Execute(cfg *config.Config, args ...string) error {
-	fmt.Println("Welcome to the GoScienceProject CLI!")
+	fmt.Println("Welcome to the CompGoR CLI!")
 	fmt.Println("Available Commands:")
 	fmt.Println("-------------------")
 	for _, command := range h.Commands.RegisteredCommands {

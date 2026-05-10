@@ -4,7 +4,7 @@ package config
 import (
 	"bufio"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/pubchemclient"
+	"github.com/SamuelAboelkhir/CompGoR/internal/pubchemclient"
 )
 
 type Config struct {

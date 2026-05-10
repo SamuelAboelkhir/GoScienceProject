@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/commands"
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/utils"
+	"github.com/SamuelAboelkhir/CompGoR/internal/commands"
+	"github.com/SamuelAboelkhir/CompGoR/internal/config"
+	"github.com/SamuelAboelkhir/CompGoR/internal/utils"
 )
 
 func repl(cfg *config.Config, cmd *commands.Commands) {

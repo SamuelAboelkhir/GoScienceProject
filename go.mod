@@ -1,3 +1,3 @@
-module github.com/SamuelAboelkhir/GoScienceProject
+module github.com/SamuelAboelkhir/CompGoR
 
 go 1.26.2

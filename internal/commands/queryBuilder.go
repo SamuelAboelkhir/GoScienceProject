@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
+	"github.com/SamuelAboelkhir/CompGoR/internal/config"
 )
 
 type QueryConstructor struct {

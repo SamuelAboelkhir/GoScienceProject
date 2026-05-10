@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/cache"
+	"github.com/SamuelAboelkhir/CompGoR/internal/cache"
 )
 
 func NewClient(timeout, cacheTimeout time.Duration) *PubChemClient {

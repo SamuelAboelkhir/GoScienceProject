@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/cache"
+	"github.com/SamuelAboelkhir/CompGoR/internal/cache"
 )
 
 type PubChemClient struct {

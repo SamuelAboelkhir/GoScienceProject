@@ -5,9 +5,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/commands"
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/config"
-	"github.com/SamuelAboelkhir/GoScienceProject/internal/pubchemclient"
+	"github.com/SamuelAboelkhir/CompGoR/internal/commands"
+	"github.com/SamuelAboelkhir/CompGoR/internal/config"
+	"github.com/SamuelAboelkhir/CompGoR/internal/pubchemclient"
 )
 
 func main() {
